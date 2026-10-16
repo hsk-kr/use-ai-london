@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Use AI London — Make your work easier with AI</title>
-  <meta name="description" content="I build small AI tools that save you time. Software engineer in London. English and Korean. A few free projects available now.">
+  <meta name="description" content="I build small AI tools that save you time at work and at home. Software engineer in London. English and Korean. A few free projects available now.">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hsk-kr.github.io/use-ai-london/">
   <meta property="og:title" content="Make your work easier with AI">
-  <meta property="og:description" content="I build small AI tools that save you time. Software engineer in London. A few free projects available now.">
+  <meta property="og:description" content="I build small AI tools that save you time at work and at home. Software engineer in London. A few free projects available now.">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="ko_KR">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Make your work easier with AI">
-  <meta name="twitter:description" content="I build small AI tools that save you time. Software engineer in London. A few free projects available now.">
+  <meta name="twitter:description" content="I build small AI tools that save you time at work and at home. Software engineer in London. A few free projects available now.">
   <meta name="theme-color" content="#4f46e5">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M16 7l2.4 6.6L25 16l-6.6 2.4L16 25l-2.4-6.6L7 16l6.6-2.4z' fill='white'/%3E%3C/svg%3E">
@@ -26,6 +26,7 @@
       --accent-soft: #eef2ff;
       --text: #1f2333;
       --muted: #5b6075;
+      --faint: #6b7085;
       --bg: #ffffff;
       --bg-alt: #f7f7fb;
       --line: #e6e7ef;
@@ -46,6 +47,7 @@
     }
 
     a { color: var(--accent); }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
     .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
@@ -89,18 +91,22 @@
 
     /* Hero */
     .hero {
-      padding: 56px 0 64px;
+      padding: 32px 0 56px;
       text-align: center;
       background:
         radial-gradient(600px 300px at 50% -10%, var(--accent-soft), transparent 70%),
         var(--bg);
     }
-    .hero .brand {
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-weight: 700;
-      color: var(--muted);
+      color: var(--text);
       font-size: 0.95rem;
       margin-bottom: 40px;
     }
+    .brand svg { width: 24px; height: 24px; }
     .hero h1 {
       font-size: clamp(2.2rem, 9vw, 3.6rem);
       max-width: 12ch;
@@ -115,27 +121,39 @@
     }
     .hero .btn { width: 100%; max-width: 340px; }
 
-    .badge {
-      display: inline-block;
-      margin-top: 22px;
-      padding: 6px 14px;
+    .chips {
+      list-style: none;
+      margin: 24px auto 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 30rem;
+    }
+    .chips li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-dark);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
     }
+    .chips svg { width: 16px; height: 16px; flex: none; }
 
-    /* Options */
-    .grid { display: grid; gap: 16px; }
+    /* Cards */
+    .grid { display: grid; gap: 14px; }
 
     .card {
       background: var(--bg);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
     }
-    .card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
     .card p { margin: 0; color: var(--muted); }
 
     .num {
@@ -161,20 +179,43 @@
     }
 
     /* Examples */
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+    .group-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .group + .group { margin-top: 40px; }
+
+    .ex-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .ex-head h3 { margin: 0; }
     .icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      flex: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--accent-soft);
       color: var(--accent);
-      margin-bottom: 14px;
     }
-    .icon svg { width: 26px; height: 26px; }
+    .icon svg { width: 24px; height: 24px; }
 
-    .ba { margin-top: 12px; display: grid; gap: 8px; }
+    .ba { display: grid; gap: 8px; }
     .ba div {
       display: flex;
       gap: 10px;
@@ -191,12 +232,19 @@
       letter-spacing: 0.06em;
     }
     .ba .before { color: var(--muted); }
-    .ba .before .tag { color: #9a9fb2; }
+    .ba .before .tag { color: var(--faint); }
     .ba .after { color: var(--text); font-weight: 600; }
     .ba .after .tag { color: var(--accent); }
 
+    .more {
+      margin: 28px 0 0;
+      text-align: center;
+      color: var(--muted);
+    }
+    .more a { font-weight: 600; }
+
     /* Steps */
-    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
     .steps li {
       display: flex;
       gap: 16px;
@@ -206,10 +254,17 @@
     .steps h3 { font-size: 1.1rem; margin: 4px 0 2px; }
     .steps p { margin: 0; color: var(--muted); }
 
-    /* Korean */
-    .korean {
-      text-align: center;
+    .meet {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
     }
+    .meet .icon { margin: 0; }
+    .meet h3 { font-size: 1.1rem; margin: 2px 0 4px; }
+
+    /* Korean */
+    .korean { text-align: center; }
     .korean .card {
       max-width: 560px;
       margin: 0 auto;
@@ -236,10 +291,10 @@
     @media (min-width: 720px) {
       body { font-size: 18px; }
       section { padding: 88px 0; }
-      .hero { padding: 72px 0 96px; }
+      .hero { padding: 40px 0 96px; }
       .hero .btn, .cta .btn { width: auto; }
       h2 { font-size: 2.1rem; }
-      .grid.two { grid-template-columns: repeat(2, 1fr); }
+      .grid.two { grid-template-columns: repeat(2, 1fr); gap: 18px; }
       .steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
       .steps li { flex-direction: column; }
     }
@@ -255,14 +310,30 @@
   <!-- Hero -->
   <header class="hero">
     <div class="wrap">
-      <div class="brand">use.ai.london</div>
+      <div class="brand">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#4f46e5"/><path d="M16 7l2.4 6.6L25 16l-6.6 2.4L16 25l-2.4-6.6L7 16l6.6-2.4z" fill="#fff"/></svg>
+        use.ai.london
+      </div>
       <h1>Make your work easier with <span>AI</span></h1>
-      <p>I build small AI tools that save you time every day. No big products. Just tools that make work simple.</p>
+      <p>I build small AI tools that save you time, at work and at home. No big products. Just tools that make life simple.</p>
       <a class="btn" href="https://instagram.com/use.ai.london" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
         DM me on Instagram
       </a>
-      <div><span class="badge">A few free projects available now</span></div>
+      <ul class="chips">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Free projects now
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          English &amp; <span lang="ko">한국어</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Meet in London
+        </li>
+      </ul>
     </div>
   </header>
 
@@ -296,54 +367,156 @@
     <section id="examples">
       <div class="wrap">
         <span class="eyebrow">Examples</span>
-        <h2>Small tools, big time savings</h2>
-        <p class="lead">Here are a few things AI can do for you.</p>
+        <h2>Small tools that make life easier</h2>
+        <p class="lead">At work or at home, AI can take the boring jobs.</p>
 
-        <div class="grid two">
-          <div class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
-            </div>
-            <h3>Excel report</h3>
-            <div class="ba">
-              <div class="before"><span class="tag">Before</span><span>Copying data into a weekly report for 2 hours</span></div>
-              <div class="after"><span class="tag">After</span><span>One click, done in 1 minute</span></div>
-            </div>
-          </div>
+        <div class="group">
+          <h3 class="group-title">At work</h3>
+          <div class="grid two">
 
-          <div class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></span>
+                <h3>Excel report</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Copying data into a weekly report for 2 hours</span></div>
+                <div class="after"><span class="tag">After</span><span>One click, done in 1 minute</span></div>
+              </div>
             </div>
-            <h3>Customer emails</h3>
-            <div class="ba">
-              <div class="before"><span class="tag">Before</span><span>Writing the same replies again and again</span></div>
-              <div class="after"><span class="tag">After</span><span>AI drafts the reply, you just check it</span></div>
-            </div>
-          </div>
 
-          <div class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+                <h3>Customer emails</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Writing the same replies again and again</span></div>
+                <div class="after"><span class="tag">After</span><span>AI drafts the reply, you just check it</span></div>
+              </div>
             </div>
-            <h3>Invoices &amp; receipts</h3>
-            <div class="ba">
-              <div class="before"><span class="tag">Before</span><span>Typing receipt details into a spreadsheet by hand</span></div>
-              <div class="after"><span class="tag">After</span><span>Upload a photo, the data fills itself in</span></div>
-            </div>
-          </div>
 
-          <div class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6M9 6h3a3 3 0 013 3v0"/></svg>
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+                <h3>Invoices &amp; receipts</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Typing receipt details into a spreadsheet by hand</span></div>
+                <div class="after"><span class="tag">After</span><span>Upload a photo, the data fills itself in</span></div>
+              </div>
             </div>
-            <h3>My own dev work</h3>
-            <div class="ba">
-              <div class="before"><span class="tag">Before</span><span>Reviewing code and fixing merge conflicts by hand</span></div>
-              <div class="after"><span class="tag">After</span><span>One button reviews the PR, another fixes conflicts</span></div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0M12 17v5M8 22h8"/></svg></span>
+                <h3>Meeting notes</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Writing up notes after every meeting</span></div>
+                <div class="after"><span class="tag">After</span><span>Record it, get a summary and a to-do list</span></div>
+              </div>
             </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                <h3>Bookings</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Replying to booking messages one by one</span></div>
+                <div class="after"><span class="tag">After</span><span>Customers book a slot, everyone gets a reminder</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6M9 6h3a3 3 0 013 3"/></svg></span>
+                <h3>My own dev work</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Reviewing code and fixing merge conflicts by hand</span></div>
+                <div class="after"><span class="tag">After</span><span>One button reviews the PR, another fixes conflicts</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <div class="group">
+          <h3 class="group-title">In daily life</h3>
+          <div class="grid two">
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></span>
+                <h3>Official letters</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Struggling with letters from the council, bank or GP</span></div>
+                <div class="after"><span class="tag">After</span><span>Take a photo, get a simple summary in your language</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></span>
+                <h3>Monthly budget</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Reading bank statements to see where money went</span></div>
+                <div class="after"><span class="tag">After</span><span>Upload the statement, see spending by category</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></span>
+                <h3>Meals &amp; shopping</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Deciding what to cook and writing a shopping list</span></div>
+                <div class="after"><span class="tag">After</span><span>A week of meals and a list, in seconds</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span>
+                <h3>Job applications</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Rewriting your CV for every job</span></div>
+                <div class="after"><span class="tag">After</span><span>Paste the job ad, get a CV and cover letter draft</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></span>
+                <h3>Bills &amp; renewals</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Forgetting due dates and paying late fees</span></div>
+                <div class="after"><span class="tag">After</span><span>A reminder arrives before every due date</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ex-head">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg></span>
+                <h3>Trip planning</h3>
+              </div>
+              <div class="ba">
+                <div class="before"><span class="tag">Before</span><span>Opening 20 tabs to plan one weekend away</span></div>
+                <div class="after"><span class="tag">After</span><span>Tell it your dates, get a day-by-day plan</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <p class="more">Have something else in mind? <a href="https://instagram.com/use.ai.london" target="_blank" rel="noopener">Tell me about it</a>.</p>
       </div>
     </section>
 
@@ -366,7 +539,7 @@
             <span class="num">2</span>
             <div>
               <h3>We chat or meet</h3>
-              <p>We talk online, or meet in person in London.</p>
+              <p>We talk online. Or, if you're in London, we can meet in person.</p>
             </div>
           </li>
           <li>
@@ -377,6 +550,14 @@
             </div>
           </li>
         </ol>
+
+        <div class="card meet">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg></span>
+          <div>
+            <h3>In London? Let's grab a coffee.</h3>
+            <p>We can meet after work or at the weekend, whenever you're comfortable. Online is fine too.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -385,7 +566,7 @@
       <div class="wrap">
         <div class="card">
           <h2>한국어로도 상담 가능합니다</h2>
-          <p>런던에 계신 한국분들도 편하게 연락 주세요.<br>직접 만나서 이야기할 수도 있어요.</p>
+          <p>런던에 계신 한국분들도 편하게 연락 주세요.<br>퇴근 후나 주말, 편하신 시간에 직접 만나서 이야기할 수도 있어요.</p>
           <a class="btn" href="https://instagram.com/use.ai.london" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
             인스타그램 DM 보내기
